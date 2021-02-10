@@ -1,7 +1,7 @@
 [pizerocluster]
-master ansible_host=<IP_HERE> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
-node1 ansible_host=<IP_HERE> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
-node2 ansible_host=<IP_HERE> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
-node3 ansible_host=<IP_HERE> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
-node4 ansible_host=<IP_HERE> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
-loadbalancer ansible_host=<IP_HERE> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
+master ansible_host=<MASTER_IP> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
+node1 ansible_host=<N1_IP> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
+node2 ansible_host=<N2_IP> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
+node3 ansible_host=<N3_IP> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
+node4 ansible_host=<N4_IP> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
+loadbalancer ansible_host=<LB_IP> ansible_user=<UNAME> ansible_become=yes ansible_password=<PASS_HERE>
