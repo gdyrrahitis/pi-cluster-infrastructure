@@ -4,6 +4,8 @@ Raspberry Pi Zero cluster infrastructure
 This repository contains all infrastructure code that automates cluster management and maintenance.
 Cluster is managed by Ansible which provides a certain level of automation on common infrastructure tasks run agains cluster nodes.
 
+![Architecture](architecture.png)
+
 # Setup
 The Ansible control node runs on a Hyper-V VM which itself runs on Arch Linux. The control node automates work like, reboot, shutdown, plugin install, system configuration and many other actions on a 6 node cluster.
 
