@@ -17,7 +17,9 @@
 void HandleTcpClient(int clientSocket, char *addr);
 void TerminateWithError(char *errorMessage);
 void InterruptSignalHandler(int signalType);
-void SetErrorResponse(Response resp, char *msg);
+void SetErrorResponse(Response *resp, char *msg);
+char * GetPlaybook(AnsibleCommand *msg);
+char * GetCommand(AnsibleCommand *msg);
 
 /*
 TODO:
@@ -93,12 +95,7 @@ void HandleTcpClient(int clientSocket, char *addr) {
     unsigned respBufLen;
     uint8_t buffer[RECVBUFFERSIZE];
     int recvMessageSize, retryCount = 0, fileSize;
-    char *path = "/home/playbooks/";
-    char *extension = ".yml";
-    char *playbook;
-    char *cmd;
-    char *ansiblePlaybookCmd = "ansible-playbook -b ";
-    char *output;
+    char *cmd, *output;
     size_t outputLen = 0;
 
     recvMessageSize = recv(clientSocket, buffer, sizeof(buffer), 0);
@@ -111,74 +108,31 @@ void HandleTcpClient(int clientSocket, char *addr) {
     msg = ansible_command__unpack(NULL, recvMessageSize, buffer);
     if (msg == NULL) {
         char *errResponse = "ERR: Error in unpacking incoming message";
-        puts(errResponse);
-        resp.has_iserror = 1;
-        resp.iserror = 1;
-        resp.msg = errResponse;
+        SetErrorResponse(&resp, errResponse);
     } else {
         puts("Received incoming message successfully");
         printf("Command: %s. Nodes: %s\n", msg->command, msg->nodes);
         // execute ansible playbook here
         // TODO: Determine which nodes to execute against
-
-        playbook = (char *)malloc(
-            strlen(msg->command) + 
-            strlen(path) + 
-            strlen(extension));
-
-        strcpy(playbook, path);
-        strcat(playbook, msg->command);
-        strcat(playbook, extension);
-        printf("Executing playbook in path '%s'\n", playbook);
-        cmd = (char *)malloc(strlen(ansiblePlaybookCmd) + strlen(playbook));
-        strcpy(cmd, ansiblePlaybookCmd);
-        strcat(cmd, playbook);
-
+        cmd = GetCommand(msg);
         fp = popen(cmd, "r");
 
         // Ansible response here
         if(fp == NULL) {
             char *errResponse = "ERR: Error in executing command";
-            puts(errResponse);
-            resp.has_iserror = 1;
-            resp.iserror = 1;
-            resp.msg = errResponse;
+            SetErrorResponse(&resp, errResponse);
         } else {
             // TODO: THIS MUST BE FIXED
-            // puts("Reading file stream");
-            // // if(fseek(fp, 0, SEEK_END) < 0) {
-            // //     // handle error
-            // //     perror("fseek() to end of stream failed");
-            // //     exit(EXIT_FAILURE);
-            // // }
-            
-            // // fileSize = ftell(fp);
-            // // rewind(fp);
-            // char resultBuffer[255];
-            // char *res;
-            // char *c;
-            // int counter = 0;
-            // int bufferSize = 255;
-            // res = (char *)calloc(bufferSize, sizeof(char));
-            // // memset(resultBuffer, 0, fileSize);
-            // // fread(resultBuffer, 1, fileSize, fp);
-            // // strcpy(resp.msg, resultBuffer);
-            // while (fgets(resultBuffer, sizeof(resultBuffer), fp) != NULL) {
-            //     printf("%s (%d)\n", resultBuffer, sizeof(resultBuffer));
-            //     if(counter > 1) {
-            //         res = (char *)realloc(res, bufferSize*=2);
-            //     }
-            //     memset(res, resultBuffer, sizeof(resultBuffer));
-            //     counter++;
-            // }
-
-            // puts("*****************");
-            // printf("%s", res);
+            char resultBuffer[255];
+            while (fgets(resultBuffer, sizeof(resultBuffer), fp) != NULL) {
+                printf("%s\n", resultBuffer);
+            }
             resp.msg = "Success";
         }
 
         pclose(fp);
     }
+    ansible_command__free_unpacked(msg, NULL);
 
     // Send back response - serialize response message
     puts("Sending response back to the client");
@@ -197,7 +151,6 @@ void HandleTcpClient(int clientSocket, char *addr) {
     }
     
     printf("Closing connection with client %s\n", addr);
-    ansible_command__free_unpacked(msg, NULL);
     free(respBuf);
     close(clientSocket);
 }
@@ -212,9 +165,36 @@ void InterruptSignalHandler(int signalType) {
     exit(EXIT_SUCCESS);
 }
 
-void SetErrorResponse(Response resp, char *msg) {
+void SetErrorResponse(Response *resp, char *msg) {
     puts(msg);
-    resp.has_iserror = 1;
-    resp.iserror = 1;
-    resp.msg = msg;
+    Response respTemp = *resp;
+    respTemp.has_iserror = 1;
+    respTemp.iserror = 1;
+    respTemp.msg = msg;
+    *resp = respTemp;
+}
+
+char * GetPlaybook(AnsibleCommand *msg) {
+    char *path = "/home/playbooks/";
+    char *extension = ".yml";
+    char *playbook;
+    playbook = (char *)malloc(
+        strlen(msg->command) + 
+        strlen(path) + 
+        strlen(extension));
+
+    strcpy(playbook, path);
+    strcat(playbook, msg->command);
+    strcat(playbook, extension);
+    printf("Executing playbook in path '%s'\n", playbook);
+    return playbook;
+}
+
+char * GetCommand(AnsibleCommand *msg) {
+    char *ansiblePlaybookCmd = "ansible-playbook -b ";
+    char *playbook = GetPlaybook(msg);
+    char *cmd = (char *)malloc(strlen(ansiblePlaybookCmd) + strlen(playbook));
+    strcpy(cmd, ansiblePlaybookCmd);
+    strcat(cmd, playbook);
+    return cmd;
 }
