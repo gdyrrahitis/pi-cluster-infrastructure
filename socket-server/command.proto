@@ -1,0 +1,6 @@
+syntax = "proto2";
+
+message AnsibleCommand {
+    required string command = 1;
+    required string nodes = 2 [default = "*"];
+}
