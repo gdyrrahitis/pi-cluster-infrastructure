@@ -1,5 +1,7 @@
 ##### Java ignores
 
+socket-client/target
+
 # Compiled class file
 *.class
 
