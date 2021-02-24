@@ -103,7 +103,9 @@ void HandleTcpClient(int clientSocket, char *addr) {
         TerminateWithError("recv() failed");
     }
 
-    printf("Receiving request from client %s\n with bytes: %d\n", addr, recvMessageSize);
+    // TODO: Handle when receives 0 size (empty request)
+
+    printf("Receiving request from client %s -- with bytes: %d\n", addr, recvMessageSize);
     // Read & deserialize proto message
     msg = ansible_command__unpack(NULL, recvMessageSize, buffer);
     if (msg == NULL) {
