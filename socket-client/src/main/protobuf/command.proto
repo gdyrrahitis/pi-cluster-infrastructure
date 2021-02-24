@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package mymessages;
+
+message ansibleCommand {
+  required string command = 1;
+  required string nodes = 2 [default = "*"];
+}

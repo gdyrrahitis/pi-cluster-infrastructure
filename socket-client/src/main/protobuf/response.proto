@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package mymessages;
+
+message response {
+  required string msg = 1;
+  optional bool isError = 2 [default = false];
+}
