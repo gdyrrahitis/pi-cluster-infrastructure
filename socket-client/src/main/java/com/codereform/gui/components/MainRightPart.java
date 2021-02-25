@@ -1,13 +1,11 @@
 package com.codereform.gui.components;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainRightPart extends Item {
-    private final Border border = BorderFactory.createEmptyBorder(10, 10, 10, 10);
     private List<Item> _components = new ArrayList<>();
 
     @Override
@@ -15,8 +13,8 @@ public class MainRightPart extends Item {
         var commandPanel = new JPanel();
         var mainBoxLayout = new BoxLayout(commandPanel, BoxLayout.Y_AXIS);
         commandPanel.setLayout(mainBoxLayout);
-        commandPanel.add(new JButton("Execute Command"));
-        commandPanel.setBorder(border);
+        commandPanel.setBorder(emptyBorder);
+        // TODO: Button strategy pattern???
         _components.stream().map(Item::draw).forEach(commandPanel::add);
         return commandPanel;
     }

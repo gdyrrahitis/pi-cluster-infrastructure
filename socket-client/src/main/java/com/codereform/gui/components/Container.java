@@ -18,7 +18,6 @@ public class Container extends Item {
         var container = _frame.getContentPane();
         var containerGrid = new GridLayout(2, 1);
         container.setLayout(containerGrid);
-
         _components.stream().map(Item::draw).forEach(container::add);
         return container;
     }
