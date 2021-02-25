@@ -2,12 +2,8 @@ package com.codereform.gui.components;
 
 import javax.swing.*;
 
-public class WindowClient {
-    // TODO: Template pattern
-    public void draw() {
-        var frame = new JFrame("Raspberry Pi Cluster Manager");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+public class WindowClient extends WindowBase {
+    public void drawComponents(JFrame frame) {
         var container = new Container(frame);
         var main = new Main();
         var left = new MainLeftPart();
@@ -31,9 +27,5 @@ public class WindowClient {
         container.add(main);
         container.add(footer);
         container.draw();
-
-        frame.pack();
-        frame.setVisible(true);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 }
