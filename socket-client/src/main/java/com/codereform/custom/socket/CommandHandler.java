@@ -1,7 +1,6 @@
 package com.codereform.custom.socket;
 
 import com.codereform.commands.ICommand;
-import com.codereform.commands.ShutdownCommand;
 import mymessages.Response;
 
 import java.io.ByteArrayOutputStream;

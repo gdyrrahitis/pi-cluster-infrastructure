@@ -8,13 +8,15 @@ public class WindowClient extends WindowBase {
         var main = new Main();
         var left = new MainLeftPart();
 
-        var commandsListView = new CommandsListView();
+        var commandsListView = new CommandsListView(); // publisher
         var nodesListView = new NodesListView();
         left.add(commandsListView);
         left.add(nodesListView);
 
-        var right = new MainRightPart();
+        var right = new MainRightPart(); // subscriber -- has reference to JFrame
         var commandsView = new CommandView();
+        // commandsListView.subscribe(right, commandsView)
+        // update(context)
         right.add(commandsView);
 
         main.add(left);
