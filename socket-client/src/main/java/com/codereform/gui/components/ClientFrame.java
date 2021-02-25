@@ -20,7 +20,8 @@ public class ClientFrame {
         main.setLayout(gridLayout);
 
         var sidebar = new JPanel();
-        sidebar.setLayout(gridLayout);
+        var gridLayout2 = new GridLayout(1, 3);
+        sidebar.setLayout(gridLayout2);
 
         var commandListModel = new DefaultListModel<>();
         commandListModel.addElement("Shutdown");
