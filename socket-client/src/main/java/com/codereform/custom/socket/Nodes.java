@@ -6,9 +6,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class Nodes {
+    private static final String asterisk = "*";
+
     public static List<String> getNodes() {
         final List<String> nodes = new ArrayList<>(Arrays.asList(
-            "*",
+                asterisk,
             "rpizero-master",
             "rpizero-node1",
             "rpizero-node2",
@@ -18,4 +20,6 @@ public class Nodes {
         ));
         return Collections.unmodifiableList(nodes);
     }
+
+    public static String getAsterisk() {return asterisk;}
 }

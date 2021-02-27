@@ -40,7 +40,7 @@ public class MainRightPart extends Item implements Subscriber {
     public void update(Context context) {
         if(context.getAction() == ListViewAction.command) {
             var command = context.getData();
-            if(currentCommand == null || currentCommand.trim().isEmpty()) {
+            if (currentCommand == null || currentCommand.trim().isEmpty()) {
                 currentCommand = command;
             } else if (currentCommand.equals(command)) {
                 JOptionPane.showMessageDialog(frame, String.format("Command '%s' is already selected", command));
