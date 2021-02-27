@@ -1,5 +1,7 @@
 package com.codereform.gui.components;
 
+import com.codereform.gui.components.commandview.DefaultCommandView;
+
 import javax.swing.*;
 
 public class WindowClient extends WindowBase {
@@ -14,9 +16,8 @@ public class WindowClient extends WindowBase {
         left.add(nodesListView);
 
         var right = new MainRightPart(); // subscriber -- has reference to JFrame
-        var commandsView = new CommandView();
-        // commandsListView.subscribe(right, commandsView)
-        // update(context)
+        var commandsView = new DefaultCommandView();
+        commandsListView.subscribe(right);
         right.add(commandsView);
 
         main.add(left);
@@ -24,6 +25,7 @@ public class WindowClient extends WindowBase {
 
         var footer = new Footer();
         var textAreaView = new TextAreaView();
+        commandsListView.subscribe(textAreaView);
         footer.add(textAreaView);
 
         container.add(main);

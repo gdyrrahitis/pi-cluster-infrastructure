@@ -7,20 +7,22 @@ import com.codereform.gui.components.communication.Subscriber;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandsListView extends Item implements Publisher {
-    private Subscriber _subscriber;
-    private CommandView _component;
+    private List<Subscriber> _subscribers = new ArrayList<>();
 
     @Override
     public Component draw() {
         var commandListModel = new DefaultListModel<>();
         commandListModel.addElement("Shutdown");
         var commandListView = new JList<>(commandListModel);
-        commandListView.addPropertyChangeListener(evt -> {
-            var value = (String)evt.getNewValue();
-            var context = new Context(ListViewAction.command, value, _component);
-            notifySubscribers(context);
+        commandListView.addListSelectionListener(evt -> {
+            if(!evt.getValueIsAdjusting()) {
+                var context = new Context(ListViewAction.command, commandListView.getSelectedValue().toString());
+                notifySubscribers(context);
+            }
         });
 
         commandListView.setBorder(emptyBorder);
@@ -32,13 +34,14 @@ public class CommandsListView extends Item implements Publisher {
     public void add(Item component) { }
 
     @Override
-    public void subscribe(Subscriber subscriber, Item component) {
-        _subscriber = subscriber;
-        _component = (CommandView) component;
+    public void subscribe(Subscriber subscriber) {
+        _subscribers.add(subscriber);
     }
 
     @Override
     public void notifySubscribers(Context context) {
-        _subscriber.update(context);
+        for (var subscriber : _subscribers) {
+            subscriber.update(context);
+        }
     }
 }

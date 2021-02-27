@@ -2,7 +2,7 @@ package com.codereform.gui.components;
 
 import javax.swing.*;
 import java.awt.*;
-
+ 
 public class CommandView extends Item {
     @Override
     public Component draw() {

@@ -1,8 +1,6 @@
 package com.codereform.gui.components.communication;
 
-import com.codereform.gui.components.Item;
-
 public interface Publisher {
-    void subscribe(Subscriber subscriber, Item component);
+    void subscribe(Subscriber subscriber);
     void notifySubscribers(Context context);
 }

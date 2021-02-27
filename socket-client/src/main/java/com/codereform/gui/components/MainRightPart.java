@@ -17,7 +17,6 @@ public class MainRightPart extends Item implements Subscriber {
         var mainBoxLayout = new BoxLayout(commandPanel, BoxLayout.Y_AXIS);
         commandPanel.setLayout(mainBoxLayout);
         commandPanel.setBorder(emptyBorder);
-        // TODO: Button strategy pattern???
         _components.stream().map(Item::draw).forEach(commandPanel::add);
         return commandPanel;
     }

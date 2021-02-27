@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="da832546-d953-4eda-a5c1-3db314a62f8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/CommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandsListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandsListView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainRightPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainRightPart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/ListViewAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/ListViewAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Publisher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,14 +24,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1ow8O7noyI0CIkI4xJcL1hWpu5v" />
   <component name="ProjectViewState">

@@ -1,18 +1,17 @@
 package com.codereform.gui.components.communication;
 
-import com.codereform.gui.components.Item;
-
 public class Context {
-    public String commandName;
+    private String data;
     private ListViewAction action;
-    public Item component;
 
-    public Context(ListViewAction action, String commandName, Item component) {
+    public Context(ListViewAction action, String data) {
         this.action = action;
-        this.component = component;
-        this.commandName = commandName;
+        this.data = data;
     }
 
-    public String getCommandName() {return commandName;}
-    public Item getComponent() { return component; }
+    public String getData() { return data; }
+
+    public ListViewAction getAction() { return action; }
+
+    public void setAction(ListViewAction action) { this.action = action; }
 }
