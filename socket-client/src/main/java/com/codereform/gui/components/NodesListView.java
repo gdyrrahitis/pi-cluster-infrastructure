@@ -1,7 +1,7 @@
 package com.codereform.gui.components;
 
+import com.codereform.custom.socket.Nodes;
 import com.codereform.gui.components.communication.Context;
-import com.codereform.gui.components.communication.ListViewAction;
 import com.codereform.gui.components.communication.Publisher;
 import com.codereform.gui.components.communication.Subscriber;
 
@@ -14,14 +14,7 @@ public class NodesListView extends Item implements Publisher {
     @Override
     public Component draw() {
         var listModel = new DefaultListModel<>();
-        // TODO: Retrieve from configuration or Constants
-        listModel.addElement("*");
-        listModel.addElement("rpizero-master");
-        listModel.addElement("rpizero-node1");
-        listModel.addElement("rpizero-node2");
-        listModel.addElement("rpizero-node3");
-        listModel.addElement("rpizero-node4");
-        listModel.addElement("rpizero-loadbalancer");
+        Nodes.getNodes().stream().forEach(n -> listModel.addElement(n));
         var listView = new JList<>(listModel);
         listView.setSelectedIndex(0);
         listView.setBorder(emptyBorder);

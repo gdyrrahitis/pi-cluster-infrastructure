@@ -1,5 +1,6 @@
 package com.codereform.gui.components;
 
+import com.codereform.commands.Commands;
 import com.codereform.gui.components.communication.Context;
 import com.codereform.gui.components.communication.ListViewAction;
 import com.codereform.gui.components.communication.Publisher;
@@ -16,7 +17,7 @@ public class CommandsListView extends Item implements Publisher {
     @Override
     public Component draw() {
         var commandListModel = new DefaultListModel<>();
-        commandListModel.addElement("Shutdown");
+        Commands.getCommands().stream().forEach(c -> commandListModel.addElement(c));
         var commandListView = new JList<>(commandListModel);
         commandListView.addListSelectionListener(evt -> {
             if(!evt.getValueIsAdjusting()) {

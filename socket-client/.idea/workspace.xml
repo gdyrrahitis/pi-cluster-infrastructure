@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da832546-d953-4eda-a5c1-3db314a62f8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandsListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandsListView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainRightPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainRightPart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/ListViewAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/ListViewAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Publisher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">

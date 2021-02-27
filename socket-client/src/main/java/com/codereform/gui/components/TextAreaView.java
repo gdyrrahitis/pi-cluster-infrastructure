@@ -13,7 +13,6 @@ public class TextAreaView extends Item implements Subscriber {
 
     @Override
     public Component draw() {
-        _responseArea.setText("aegeagew");
         _responseArea.setEnabled(false);
         _responseArea.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         _responseArea.setMargin(_margin);
