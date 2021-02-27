@@ -40,6 +40,16 @@ public class CommandsListView extends Item implements Publisher {
     }
 
     @Override
+    public void unsubscribe(Subscriber subscriber) {
+        _subscribers.removeIf(x-> x.equals(subscriber));
+    }
+
+    @Override
+    public void unsubscribeAll() {
+        _subscribers.clear();
+    }
+
+    @Override
     public void notifySubscribers(Context context) {
         for (var subscriber : _subscribers) {
             subscriber.update(context);

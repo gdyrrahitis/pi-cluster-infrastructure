@@ -11,13 +11,15 @@ public class WindowClient extends WindowBase {
         var left = new MainLeftPart();
 
         var commandsListView = new CommandsListView();
-        var nodesListView = new NodesListView();
+        var nodesListView = new NodesListView(frame);
         left.add(commandsListView);
         left.add(nodesListView);
 
         var right = new MainRightPart(frame);
         var commandsView = new DefaultCommandView();
         commandsListView.subscribe(right);
+        nodesListView.subscribe(right);
+        commandsListView.subscribe(nodesListView);
         right.add(commandsView);
 
         main.add(left);

@@ -12,14 +12,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class NodesListView extends Item implements Publisher {
+public class NodesListView extends Item implements Publisher, Subscriber {
     private Subscriber _subscriber;
+    private JFrame frame;
+    JList<Object> listView;
+
+    public NodesListView(JFrame frame) { this.frame = frame; }
 
     @Override
     public Component draw() {
         var listModel = new DefaultListModel<>();
         Nodes.getNodes().stream().forEach(n -> listModel.addElement(n));
-        var listView = new JList<>(listModel);
+        listView = new JList<>(listModel);
         listView.setSelectedIndex(0);
         listView.setBorder(emptyBorder);
         listView.addListSelectionListener(evt -> {
@@ -69,10 +73,25 @@ public class NodesListView extends Item implements Publisher {
     }
 
     @Override
+    public void unsubscribe(Subscriber subscriber) { }
+
+    @Override
+    public void unsubscribeAll() { }
+
+    @Override
     public void notifySubscribers(Context context) {
         if(_subscriber != null)
         {
             _subscriber.update(context);
+        }
+    }
+
+    @Override
+    public void update(Context context) {
+        if(context.getAction() == ListViewAction.command) {
+            listView.setSelectedIndex(0);
+        } else {
+            JOptionPane.showMessageDialog(frame, String.format("Cannot handle '%s' action in %s.", context.getAction(), this.getClass().getName()));
         }
     }
 }
