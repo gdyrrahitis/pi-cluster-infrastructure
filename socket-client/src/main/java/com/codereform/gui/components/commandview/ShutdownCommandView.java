@@ -1,6 +1,7 @@
 package com.codereform.gui.components.commandview;
 
 import com.codereform.custom.socket.ShutdownCommandHandler;
+import com.codereform.custom.socket.TextAreaImplementor;
 import com.codereform.gui.components.Item;
 import com.codereform.gui.components.communication.Context;
 import com.codereform.gui.components.communication.ListViewAction;
@@ -21,7 +22,7 @@ public class ShutdownCommandView extends Item implements Subscriber {
         button.addActionListener(e -> {
             var handler = new ShutdownCommandHandler();
             var response = handler.Handle(nodes);
-            //response.handleResponse();
+            var textAreaImplementor = new TextAreaImplementor();
         });
         return button;
     }

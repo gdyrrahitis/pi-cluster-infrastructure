@@ -1,13 +1,13 @@
 package com.codereform.custom.socket;
 
 public class ResponseContext {
-    private IResponseHandler _responseHandler;
+    private ResponseHandler _responseHandler;
 
-    public ResponseContext(IResponseHandler responseHandler) {
+    public ResponseContext(ResponseHandler responseHandler) {
         _responseHandler = responseHandler;
     }
 
-    public void executeResponse() {
+    public void executeResponse() throws NoSuchFieldException {
         _responseHandler.handleResponse();
     }
 }

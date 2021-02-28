@@ -11,13 +11,14 @@ import java.util.List;
 public abstract class CommandHandler {
     private static final String address = "192.168.0.136";
     private static final int port = 8080;
+    private final int bufferSize = 1024;
+    private final int offset = 0;
 
     abstract ICommand getCommand(List<String> nodes);
 
-    public final IResponseHandler Handle(List<String> nodes) {
+    public final ResponseHandler Handle(List<String> nodes) {
         try (var socket = new Socket(address, port)){
             var command = getCommand(nodes);
-            System.out.println("Connected with server...");
 
             try(
                     var outputStream = socket.getOutputStream();
@@ -26,30 +27,28 @@ public abstract class CommandHandler {
             ) {
                 command.createCommand().writeTo(outputStream);
                 int ch;
-                byte[] data = new byte[1024];
-                while((ch = inputStream.read(data, 0, data.length)) != -1) {
-                    buffer.write(data, 0, ch);
+                byte[] data = new byte[bufferSize];
+                while((ch = inputStream.read(data, offset, data.length)) != -1) {
+                    buffer.write(data, offset, ch);
                 }
 
                 var response = Response.response.parseFrom(buffer.toByteArray());
-                if(response.hasIsError() && response.getIsError()) {
-                    System.err.println("ERR: There was an error returned from server: " + response.getMsg());
-                    return new ErrorResponseHandler();
-                } else {
-                    System.out.println("Response message: " + response.getMsg());
-                    return new SuccessfulResponseHandler();
-                }
+                return isSuccessfulResponse(response) ?
+                        new SuccessfulResponseHandler(response):
+                        new ErrorResponseHandler(response);
             }
         }
         catch (IOException ex) {
-            // TODO: Handle socket error
             System.err.println(String.format("Error with socket descriptor. %s", ex.getMessage()));
-            return new ExceptionResponseHandler();
+            return new ExceptionResponseHandler(ex);
         }
         catch(Exception ex) {
-            // TODO: Handle generic error
             System.err.println(ex.getMessage());
-            return new ExceptionResponseHandler();
+            return new ExceptionResponseHandler(ex);
         }
+    }
+
+    private boolean isSuccessfulResponse(Response.response response) {
+        return !(response.hasIsError() && response.getIsError());
     }
 }
