@@ -1,13 +1,19 @@
 package com.codereform.client;
 
-import com.codereform.custom.socket.ResponseContext;
-import com.codereform.custom.socket.ShutdownCommandHandler;
+import com.codereform.gui.components.ClientFrame;
+import com.codereform.gui.components.WindowClient;
+
+import javax.swing.*;
 
 public class socketClient {
     public static void main(String[] args) {
-        var handler = new ShutdownCommandHandler();
-        var response = handler.Handle(null);
-        var context = new ResponseContext(response);
-        context.executeResponse();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+//                new ClientFrame();
+                var window = new WindowClient();
+                window.draw();
+            }
+        });
     }
 }

@@ -1,8 +1,9 @@
 package com.codereform.custom.socket;
 
-public class SuccessfulResponseHandler implements IResponseHandler {
-    @Override
-    public void handleResponse() {
-        // TODO: Implementation
+import mymessages.Response;
+
+public class SuccessfulResponseHandler extends ResponseHandler {
+    public SuccessfulResponseHandler(Response.response response) {
+        super(response);
     }
 }

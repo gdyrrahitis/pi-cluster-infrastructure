@@ -1,8 +1,7 @@
 package com.codereform.custom.socket;
 
-public class ExceptionResponseHandler implements IResponseHandler {
-    @Override
-    public void handleResponse() {
-        // TODO: Implementation
+public class ExceptionResponseHandler extends ResponseHandler {
+    protected ExceptionResponseHandler(Exception exception) {
+        super(exception.getMessage());
     }
 }
