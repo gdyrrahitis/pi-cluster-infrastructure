@@ -1,5 +1,7 @@
 package com.codereform.gui.components;
 
+import com.codereform.gui.components.communication.Mediator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -7,6 +9,10 @@ import java.util.List;
 
 public class Main extends Item {
     private List<Item> _components = new ArrayList<>();
+
+    public Main(Mediator mediator) {
+        super(mediator);
+    }
 
     @Override
     public Component draw() {

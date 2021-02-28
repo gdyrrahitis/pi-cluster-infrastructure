@@ -1,5 +1,7 @@
 package com.codereform.gui.components;
 
+import com.codereform.gui.components.communication.Mediator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -9,7 +11,9 @@ public class Container extends Item {
     private List<Item> _components = new ArrayList<>();
     private JFrame _frame;
 
-    public Container(JFrame frame) {
+    public Container(Mediator mediator, JFrame frame) {
+        super(mediator);
+
         _frame = frame;
     }
 

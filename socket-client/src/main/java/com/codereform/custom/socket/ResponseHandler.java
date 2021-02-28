@@ -3,26 +3,16 @@ package com.codereform.custom.socket;
 import mymessages.Response;
 
 public abstract class ResponseHandler {
-    private String response;
-    private ResponseImplementor implementor;
+    protected String rawResponse;
 
     protected ResponseHandler(String response) {
-        this.response = response;
+        this.rawResponse = response;
     }
-
     protected ResponseHandler(Response.response response) {
         this(response.getMsg());
     }
 
-    public void handleResponse() throws NoSuchFieldException {
-        if(implementor != null) {
-            implementor.handleResponse(response);
-        } else {
-            throw new NoSuchFieldException("Implementor field is not set");
-        }
-    }
-
-    public void setImplementor(ResponseImplementor implementor) {
-        this.implementor = implementor;
+    public String getResponse() {
+        return rawResponse;
     }
 }

@@ -2,15 +2,17 @@ package com.codereform.gui.components.commandview;
 
 import com.codereform.gui.components.Item;
 import com.codereform.gui.components.communication.Context;
-import com.codereform.gui.components.communication.Subscriber;
+import com.codereform.gui.components.communication.Mediator;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ErrorCommandView extends Item implements Subscriber {
+public class ErrorCommandView extends Item {
     private String errorMessage;
 
-    public ErrorCommandView(String errorMessage) {
+    public ErrorCommandView(Mediator mediator, String errorMessage) {
+        super(mediator);
+
         this.errorMessage = errorMessage;
     }
 
@@ -25,7 +27,7 @@ public class ErrorCommandView extends Item implements Subscriber {
     public void add(Item component) { }
 
     @Override
-    public void update(Context context) {
-
+    public void receive(Context context) {
+        // TODO: RECEIVE IMPLEMENTATION
     }
 }

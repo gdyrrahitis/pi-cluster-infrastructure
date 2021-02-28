@@ -1,10 +1,7 @@
 package com.codereform.gui.components;
 
 import com.codereform.custom.socket.Nodes;
-import com.codereform.gui.components.communication.Context;
-import com.codereform.gui.components.communication.ListViewAction;
-import com.codereform.gui.components.communication.Publisher;
-import com.codereform.gui.components.communication.Subscriber;
+import com.codereform.gui.components.communication.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +9,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class NodesListView extends Item implements Publisher, Subscriber {
-    private Subscriber _subscriber;
+public class NodesListView extends Item {
     private JFrame frame;
     JList<Object> listView;
 
-    public NodesListView(JFrame frame) { this.frame = frame; }
+    public NodesListView(Mediator mediator, JFrame frame) {
+        super(mediator);
+
+        this.frame = frame; }
 
     @Override
     public Component draw() {
@@ -32,8 +31,9 @@ public class NodesListView extends Item implements Publisher, Subscriber {
                 var values = (isMultiSelectWithAsteriskInValues(selectedValues)) ?
                         getSelectedValuesWithAsteriskExcluded(selectedValues): toStringList(selectedValues);
 
+                var notification = new NodesSelectedNotification();
                 var context = new Context(ListViewAction.nodesUpdate, String.join(",", values));
-                notifySubscribers(context);
+                notifyColleagues(notification, context);
             }
         });
         var scrollLayout = new JScrollPane(listView);
@@ -67,27 +67,12 @@ public class NodesListView extends Item implements Publisher, Subscriber {
     @Override
     public void add(Item component) { }
 
-    @Override
-    public void subscribe(Subscriber subscriber) {
-        _subscriber = subscriber;
+    private void notifyColleagues(NodesSelectedNotification notification, Context context) {
+        mediator.send(notification, context);
     }
 
     @Override
-    public void unsubscribe(Subscriber subscriber) { }
-
-    @Override
-    public void unsubscribeAll() { }
-
-    @Override
-    public void notifySubscribers(Context context) {
-        if(_subscriber != null)
-        {
-            _subscriber.update(context);
-        }
-    }
-
-    @Override
-    public void update(Context context) {
+    public void receive(Context context) {
         if(context.getAction() == ListViewAction.command) {
             listView.setSelectedIndex(0);
         } else {
