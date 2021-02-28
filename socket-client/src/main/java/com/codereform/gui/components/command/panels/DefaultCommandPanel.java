@@ -13,7 +13,7 @@ public class DefaultCommandPanel extends UiComponent {
 
     @Override
     public Component draw() {
-        var label = new JLabel("Select a command from the pane on the right");
+        var label = new JLabel("Select a command from the leftmost panel");
         return label;
     }
 

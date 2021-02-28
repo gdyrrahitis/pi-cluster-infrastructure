@@ -22,6 +22,7 @@ public class RebootCommandPanel extends UiComponent {
     public Component draw() {
         var button = new JButton("Reboot");
         button.addActionListener(e -> {
+            // TODO: Implement
             System.out.println("Reboot button clicked. Updating nodes:");
             System.out.println(nodes);
         });

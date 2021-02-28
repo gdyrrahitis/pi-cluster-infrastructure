@@ -12,30 +12,29 @@ import java.util.List;
 
 public class MainPanelRightPart extends UiComponent {
     private final CommandPanelFactory commandPanelFactory;
-    private List<UiComponent> _components = new ArrayList<>();
+    private List<UiComponent> components = new ArrayList<>();
     private JPanel commandPanel = new JPanel();
     private JFrame frame;
     private String currentCommand;
 
     public MainPanelRightPart(Mediator mediator, JFrame frame) {
         super(mediator);
-
         this.frame = frame;
         commandPanelFactory = new CommandPanelFactory(mediator);
     }
 
     @Override
     public Component draw() {
-        var mainBoxLayout = new BoxLayout(commandPanel, BoxLayout.Y_AXIS);
-        commandPanel.setLayout(mainBoxLayout);
+        var boxLayout = new BoxLayout(commandPanel, BoxLayout.Y_AXIS);
+        commandPanel.setLayout(boxLayout);
         commandPanel.setBorder(emptyBorder);
-        _components.stream().map(UiComponent::draw).forEach(commandPanel::add);
+        components.stream().map(UiComponent::draw).forEach(commandPanel::add);
         return commandPanel;
     }
 
     @Override
     public void add(UiComponent component) {
-        _components.add(component);
+        components.add(component);
     }
 
     @Override

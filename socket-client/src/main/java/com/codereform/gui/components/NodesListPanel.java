@@ -13,12 +13,12 @@ import java.util.stream.Stream;
 
 public class NodesListPanel extends UiComponent {
     private JFrame frame;
-    JList<Object> listView;
+    private JList<Object> listView;
 
     public NodesListPanel(Mediator mediator, JFrame frame) {
         super(mediator);
-
-        this.frame = frame; }
+        this.frame = frame;
+    }
 
     @Override
     public Component draw() {

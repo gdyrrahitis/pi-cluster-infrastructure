@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FooterPanel extends UiComponent {
-    private List<UiComponent> _components = new ArrayList<>();
+    private List<UiComponent> components = new ArrayList<>();
 
     public FooterPanel(Mediator mediator) {
         super(mediator);
@@ -17,14 +17,14 @@ public class FooterPanel extends UiComponent {
     @Override
     public Component draw() {
         var footer = new JPanel();
-        var boxLayout2 = new BoxLayout(footer, BoxLayout.Y_AXIS);
-        footer.setLayout(boxLayout2);
-        _components.stream().map(UiComponent::draw).forEach(footer::add);
+        var boxLayout = new BoxLayout(footer, BoxLayout.Y_AXIS);
+        footer.setLayout(boxLayout);
+        components.stream().map(UiComponent::draw).forEach(footer::add);
         return footer;
     }
 
     @Override
     public void add(UiComponent component) {
-        _components.add(component);
+        components.add(component);
     }
 }

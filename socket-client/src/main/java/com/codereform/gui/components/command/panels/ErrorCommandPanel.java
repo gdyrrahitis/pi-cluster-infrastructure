@@ -12,7 +12,6 @@ public class ErrorCommandPanel extends UiComponent {
 
     public ErrorCommandPanel(Mediator mediator, String errorMessage) {
         super(mediator);
-
         this.errorMessage = errorMessage;
     }
 
@@ -27,7 +26,5 @@ public class ErrorCommandPanel extends UiComponent {
     public void add(UiComponent component) { }
 
     @Override
-    public void receive(Context context) {
-        // TODO: RECEIVE IMPLEMENTATION
-    }
+    public void receive(Context context) { }
 }

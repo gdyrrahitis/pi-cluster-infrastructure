@@ -8,8 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TextAreaView extends UiComponent {
-    private final Insets _margin = new Insets(10, 10, 10, 10);
-    private JTextArea _responseArea = new JTextArea();
+    private final Insets margin = new Insets(10, 10, 10, 10);
+    private JTextArea textArea = new JTextArea();
 
     public TextAreaView(Mediator mediator) {
         super(mediator);
@@ -17,10 +17,10 @@ public class TextAreaView extends UiComponent {
 
     @Override
     public Component draw() {
-        _responseArea.setEnabled(false);
-        _responseArea.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        _responseArea.setMargin(_margin);
-        return _responseArea;
+        textArea.setEnabled(false);
+        textArea.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        textArea.setMargin(margin);
+        return textArea;
     }
 
     @Override
@@ -28,9 +28,9 @@ public class TextAreaView extends UiComponent {
 
     public void receive(Context context) {
         if(context.getAction() == ListViewAction.response) {
-            _responseArea.setText(context.getData());
+            textArea.setText(context.getData());
         } else {
-            _responseArea.setText("");
+            textArea.setText("");
         }
     }
 }

@@ -8,26 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Container extends UiComponent {
-    private List<UiComponent> _components = new ArrayList<>();
-    private JFrame _frame;
+    private List<UiComponent> components = new ArrayList<>();
+    private JFrame frame;
 
     public Container(Mediator mediator, JFrame frame) {
         super(mediator);
-
-        _frame = frame;
+        this.frame = frame;
     }
 
     @Override
     public Component draw() {
-        var container = _frame.getContentPane();
-        var containerGrid = new GridLayout(2, 1);
-        container.setLayout(containerGrid);
-        _components.stream().map(UiComponent::draw).forEach(container::add);
+        var container = frame.getContentPane();
+        var gridLayout = new GridLayout(2, 1);
+        container.setLayout(gridLayout);
+        components.stream().map(UiComponent::draw).forEach(container::add);
         return container;
     }
 
     @Override
     public void add(UiComponent component) {
-        _components.add(component);
+        components.add(component);
     }
 }
