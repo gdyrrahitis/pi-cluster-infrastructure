@@ -7,23 +7,20 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Container extends UiComponent {
+public class MainPanelLeftPart extends UiComponent {
     private List<UiComponent> _components = new ArrayList<>();
-    private JFrame _frame;
 
-    public Container(Mediator mediator, JFrame frame) {
+    public MainPanelLeftPart(Mediator mediator) {
         super(mediator);
-
-        _frame = frame;
     }
 
     @Override
     public Component draw() {
-        var container = _frame.getContentPane();
-        var containerGrid = new GridLayout(2, 1);
-        container.setLayout(containerGrid);
-        _components.stream().map(UiComponent::draw).forEach(container::add);
-        return container;
+        var sidebar = new JPanel();
+        var gridLayout = new GridLayout(1, 3);
+        sidebar.setLayout(gridLayout);
+        _components.stream().map(UiComponent::draw).forEach(sidebar::add);
+        return sidebar;
     }
 
     @Override
