@@ -10,8 +10,5 @@ public class Context {
     }
 
     public String getData() { return data; }
-
     public ListViewAction getAction() { return action; }
-
-    public void setAction(ListViewAction action) { this.action = action; }
 }

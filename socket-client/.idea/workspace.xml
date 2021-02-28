@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="da832546-d953-4eda-a5c1-3db314a62f8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/Nodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/Nodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/ResponseImplementor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/SuccessfulResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/custom/socket/SuccessfulResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/FooterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/FooterPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelLeftPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelLeftPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelRightPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelRightPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/DefaultCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/DefaultCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ErrorCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ErrorCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/RebootCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/RebootCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +56,12 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.codereform.gui.components" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.codereform.gui.components.communication.mediator" />
+      <recent name="com.codereform.gui.components.communication.notifications" />
+      <recent name="com.codereform.socket.client" />
+      <recent name="com.codereform.socket.client.response" />
     </key>
   </component>
   <component name="RunManager">
