@@ -1,0 +1,6 @@
+---
+- hosts: pizerocluster
+  gather_facts: no
+  tasks:
+   - name: Ping Python targets
+     ansible.builtin.ping:
