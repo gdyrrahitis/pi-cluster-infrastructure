@@ -1,7 +1,8 @@
 package com.codereform.gui.components.command.panels;
 
+import com.codereform.socket.client.commands.Commands;
 import com.codereform.socket.client.sender.CommandSender;
-import com.codereform.socket.client.sender.ShutdownCommandSender;
+import com.codereform.socket.client.sender.Sender;
 import com.codereform.gui.components.communication.mediator.Mediator;
 
 import javax.swing.*;
@@ -18,6 +19,7 @@ public class ShutdownCommandPanel extends ActionableCommandPanel {
 
     @Override
     protected CommandSender getSender() {
-        return new ShutdownCommandSender();
+        var shutdown = Commands.getShutdown();
+        return new Sender(shutdown);
     }
 }

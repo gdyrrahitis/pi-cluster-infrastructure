@@ -1,6 +1,6 @@
 package com.codereform.socket.client.sender;
 
-import com.codereform.socket.client.commands.BaseCommand;
+import com.codereform.socket.client.commands.ProtoCommand;
 import com.codereform.socket.client.response.ErrorResponseWrapper;
 import com.codereform.socket.client.response.ExceptionResponseWrapper;
 import com.codereform.socket.client.response.ResponseWrapper;
@@ -18,7 +18,7 @@ public abstract class CommandSender {
     private final int bufferSize = 1024;
     private final int offset = 0;
 
-    abstract BaseCommand getCommand(List<String> nodes);
+    abstract ProtoCommand getCommand(List<String> nodes);
 
     public final ResponseWrapper handle(List<String> nodes) {
         try (var socket = new Socket(address, port)){
@@ -29,7 +29,7 @@ public abstract class CommandSender {
                     var inputStream = socket.getInputStream();
                     var buffer = new ByteArrayOutputStream()
             ) {
-                command.createCommand().writeTo(outputStream);
+                command.getCommand().writeTo(outputStream);
                 int ch;
                 byte[] data = new byte[bufferSize];
                 while((ch = inputStream.read(data, offset, data.length)) != -1) {
