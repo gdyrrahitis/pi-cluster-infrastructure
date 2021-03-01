@@ -1,8 +1,9 @@
 package com.codereform.gui.components;
 
 import com.codereform.gui.components.communication.Context;
-import com.codereform.gui.components.communication.ListViewAction;
 import com.codereform.gui.components.communication.mediator.Mediator;
+import com.codereform.gui.components.communication.notifications.CommandSelectedNotification;
+import com.codereform.gui.components.communication.notifications.ResponseReceivedNotification;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,9 +28,10 @@ public class TextAreaView extends UiComponent {
     public void add(UiComponent component) { }
 
     public void receive(Context context) {
-        if(context.getAction() == ListViewAction.response) {
+        var notificationType = (Class)context.getMetadataValueByKey("notification");
+        if(notificationType == ResponseReceivedNotification.class) {
             textArea.setText(context.getData());
-        } else {
+        } else if(notificationType == CommandSelectedNotification.class) {
             textArea.setText("");
         }
     }

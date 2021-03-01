@@ -1,14 +1,31 @@
 package com.codereform.gui.components.communication;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class Context {
     private String data;
-    private ListViewAction action;
+    private HashMap<String, Object> metadata;
 
-    public Context(ListViewAction action, String data) {
-        this.action = action;
+    public Context(String data) {
         this.data = data;
+        this.metadata = new HashMap<>();
     }
 
-    public String getData() { return data; }
-    public ListViewAction getAction() { return action; }
+    public Context(String data, HashMap<String, Object> metadata) {
+        this.data = data;
+        this.metadata = metadata;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public Object getMetadataValueByKey(String key) {
+        return metadata.get(key);
+    }
+
+    public boolean containsKey(String key) {
+        return metadata.containsKey(key);
+    }
 }

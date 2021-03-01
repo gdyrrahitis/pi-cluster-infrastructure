@@ -6,15 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="da832546-d953-4eda-a5c1-3db314a62f8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/BaseCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/RebootCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/RebootCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/ShutdownCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/ShutdownCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ErrorResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ErrorResponseWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ResponseWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/SuccessfulResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/SuccessfulResponseWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/RebootCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/RebootCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ShutdownCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ShutdownCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/BaseCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/RebootCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/commands/ShutdownCommand.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/sender/CommandSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/sender/CommandSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/protobuf/command.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/protobuf/command.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/protobuf/response.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/protobuf/response.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/sender/RebootCommandSender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/sender/ShutdownCommandSender.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

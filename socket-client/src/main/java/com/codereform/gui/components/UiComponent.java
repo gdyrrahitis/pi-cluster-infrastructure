@@ -22,4 +22,8 @@ public abstract class UiComponent {
         // TODO: Move it to another class that derives from Item or to interface
         // Not implemented by default
     }
+
+    protected boolean isContextDataNullOrEmpty(Context context) {
+        return context.getData() != null || !context.getData().isEmpty();
+    }
 }

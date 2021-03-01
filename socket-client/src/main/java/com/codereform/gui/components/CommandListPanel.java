@@ -7,6 +7,8 @@ import com.codereform.gui.components.communication.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.List;
 
 public class CommandListPanel extends UiComponent {
     public CommandListPanel(Mediator mediator) {
@@ -21,7 +23,9 @@ public class CommandListPanel extends UiComponent {
         commandListView.addListSelectionListener(evt -> {
             if(!evt.getValueIsAdjusting()) {
                 var notification = new CommandSelectedNotification();
-                var context = new Context(ListViewAction.command, commandListView.getSelectedValue().toString());
+                var metadata = new HashMap<String, Object>();
+                metadata.put("notification", notification.getClass());
+                var context = new Context(commandListView.getSelectedValue().toString(), metadata);
                 notifyColleagues(notification, context);
             }
         });
