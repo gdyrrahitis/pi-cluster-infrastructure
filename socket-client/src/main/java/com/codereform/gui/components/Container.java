@@ -1,6 +1,7 @@
 package com.codereform.gui.components;
 
 import com.codereform.gui.components.communication.mediator.Mediator;
+import com.google.inject.Inject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,7 @@ public class Container extends UiComponent {
     private List<UiComponent> components = new ArrayList<>();
     private JFrame frame;
 
+    @Inject
     public Container(Mediator mediator, JFrame frame) {
         super(mediator);
         this.frame = frame;

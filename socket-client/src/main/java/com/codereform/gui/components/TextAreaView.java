@@ -4,6 +4,7 @@ import com.codereform.gui.components.communication.Context;
 import com.codereform.gui.components.communication.mediator.Mediator;
 import com.codereform.gui.components.communication.notifications.CommandSelectedNotification;
 import com.codereform.gui.components.communication.notifications.ResponseReceivedNotification;
+import com.google.inject.Inject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ public class TextAreaView extends UiComponent {
     private final Insets margin = new Insets(10, 10, 10, 10);
     private JTextArea textArea = new JTextArea();
 
+    @Inject
     public TextAreaView(Mediator mediator) {
         super(mediator);
     }
