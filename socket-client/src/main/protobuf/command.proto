@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package mymessages;
+package ClusterProtos;
 
-message ansibleCommand {
+message AnsibleCommand {
   required string command = 1;
   required string nodes = 2 [default = "*"];
 }

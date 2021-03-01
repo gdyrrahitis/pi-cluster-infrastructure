@@ -5,7 +5,7 @@ import com.codereform.socket.client.response.ErrorResponseWrapper;
 import com.codereform.socket.client.response.ExceptionResponseWrapper;
 import com.codereform.socket.client.response.ResponseWrapper;
 import com.codereform.socket.client.response.SuccessfulResponseWrapper;
-import mymessages.Response;
+import ClusterProtos.Response;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -36,7 +36,7 @@ public abstract class CommandSender {
                     buffer.write(data, offset, ch);
                 }
 
-                var response = Response.response.parseFrom(buffer.toByteArray());
+                var response = Response.ServerResponse.parseFrom(buffer.toByteArray());
                 return isSuccessfulResponse(response) ?
                         new SuccessfulResponseWrapper(response):
                         new ErrorResponseWrapper(response);
@@ -52,7 +52,7 @@ public abstract class CommandSender {
         }
     }
 
-    private boolean isSuccessfulResponse(Response.response response) {
+    private boolean isSuccessfulResponse(Response.ServerResponse response) {
         return !(response.hasIsError() && response.getIsError());
     }
 }

@@ -1,6 +1,6 @@
 package com.codereform.socket.client.response;
 
-import mymessages.Response;
+import ClusterProtos.Response;
 
 public abstract class ResponseWrapper {
     protected String rawResponse;
@@ -8,7 +8,7 @@ public abstract class ResponseWrapper {
     protected ResponseWrapper(String response) {
         this.rawResponse = response;
     }
-    protected ResponseWrapper(Response.response response) {
+    protected ResponseWrapper(Response.ServerResponse response) {
         this(response.getMsg());
     }
 
