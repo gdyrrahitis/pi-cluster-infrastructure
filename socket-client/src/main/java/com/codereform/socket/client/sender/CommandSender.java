@@ -1,6 +1,6 @@
 package com.codereform.socket.client.sender;
 
-import com.codereform.socket.client.commands.ICommand;
+import com.codereform.socket.client.commands.BaseCommand;
 import com.codereform.socket.client.response.ErrorResponseWrapper;
 import com.codereform.socket.client.response.ExceptionResponseWrapper;
 import com.codereform.socket.client.response.ResponseWrapper;
@@ -18,7 +18,7 @@ public abstract class CommandSender {
     private final int bufferSize = 1024;
     private final int offset = 0;
 
-    abstract ICommand getCommand(List<String> nodes);
+    abstract BaseCommand getCommand(List<String> nodes);
 
     public final ResponseWrapper handle(List<String> nodes) {
         try (var socket = new Socket(address, port)){

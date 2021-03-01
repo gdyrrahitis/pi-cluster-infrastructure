@@ -1,11 +1,12 @@
 package com.codereform.socket.client.commands;
 
 import com.codereform.socket.client.Nodes;
+import mymessages.Command;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class BaseCommand implements ICommand {
+public abstract class BaseCommand {
     protected List<String> _nodes;
     protected BaseCommand(List<String> nodes) {
         _nodes = nodes;
@@ -14,7 +15,6 @@ public abstract class BaseCommand implements ICommand {
     protected List<String> getNodes() {
         return _nodes;
     }
-
     protected abstract String getCommand();
 
     protected String getFormattedNodes() {
@@ -24,5 +24,12 @@ public abstract class BaseCommand implements ICommand {
         } else {
             return nodes.stream().collect(Collectors.joining(","));
         }
+    }
+
+    public Command.ansibleCommand createCommand() {
+        return Command.ansibleCommand.newBuilder()
+                .setCommand(getCommand())
+                .setNodes(getFormattedNodes())
+                .build();
     }
 }

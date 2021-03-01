@@ -4,6 +4,8 @@ import com.codereform.gui.components.UiComponent;
 import com.codereform.gui.components.communication.Context;
 import com.codereform.gui.components.communication.ListViewAction;
 import com.codereform.gui.components.communication.mediator.Mediator;
+import com.codereform.gui.components.communication.notifications.ResponseReceivedNotification;
+import com.codereform.socket.client.sender.RebootCommandSender;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,9 +24,11 @@ public class RebootCommandPanel extends UiComponent {
     public Component draw() {
         var button = new JButton("Reboot");
         button.addActionListener(e -> {
-            // TODO: Implement
-            System.out.println("Reboot button clicked. Updating nodes:");
-            System.out.println(nodes);
+            var handler = new RebootCommandSender();
+            var response = handler.handle(nodes);
+            var notification = new ResponseReceivedNotification();
+            var context = new Context(ListViewAction.response, response.getResponse());
+            mediator.send(notification, context);
         });
         return button;
     }
