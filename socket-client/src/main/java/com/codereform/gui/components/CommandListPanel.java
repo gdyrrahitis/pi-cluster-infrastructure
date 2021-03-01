@@ -4,13 +4,14 @@ import com.codereform.gui.components.communication.mediator.Mediator;
 import com.codereform.gui.components.communication.notifications.CommandSelectedNotification;
 import com.codereform.socket.client.commands.Commands;
 import com.codereform.gui.components.communication.*;
+import com.google.inject.Inject;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
-import java.util.List;
 
 public class CommandListPanel extends UiComponent {
+    @Inject
     public CommandListPanel(Mediator mediator) {
         super(mediator);
     }

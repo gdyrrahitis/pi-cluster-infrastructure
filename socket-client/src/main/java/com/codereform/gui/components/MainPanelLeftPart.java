@@ -1,6 +1,7 @@
 package com.codereform.gui.components;
 
 import com.codereform.gui.components.communication.mediator.Mediator;
+import com.google.inject.Inject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +11,7 @@ import java.util.List;
 public class MainPanelLeftPart extends UiComponent {
     private List<UiComponent> components = new ArrayList<>();
 
+    @Inject
     public MainPanelLeftPart(Mediator mediator) {
         super(mediator);
     }

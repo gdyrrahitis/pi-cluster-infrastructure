@@ -4,6 +4,7 @@ import com.codereform.gui.components.communication.mediator.Mediator;
 import com.codereform.gui.components.communication.notifications.NodesSelectedNotification;
 import com.codereform.socket.client.Nodes;
 import com.codereform.gui.components.communication.*;
+import com.google.inject.Inject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ public class NodesListPanel extends UiComponent {
     private JFrame frame;
     private JList<Object> listView;
 
+    @Inject
     public NodesListPanel(Mediator mediator, JFrame frame) {
         super(mediator);
         this.frame = frame;
