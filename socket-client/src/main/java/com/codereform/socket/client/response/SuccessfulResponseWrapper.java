@@ -1,9 +1,9 @@
 package com.codereform.socket.client.response;
 
-import mymessages.Response;
+import ClusterProtos.Response;
 
 public class SuccessfulResponseWrapper extends ResponseWrapper {
-    public SuccessfulResponseWrapper(Response.response response) {
+    public SuccessfulResponseWrapper(Response.ServerResponse response) {
         super(response);
     }
 }

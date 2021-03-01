@@ -1,7 +1,7 @@
 package com.codereform.socket.client.commands;
 
 import com.codereform.socket.client.Nodes;
-import mymessages.Command;
+import ClusterProtos.Command;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,8 +26,8 @@ public abstract class BaseCommand {
         }
     }
 
-    public Command.ansibleCommand createCommand() {
-        return Command.ansibleCommand.newBuilder()
+    public Command.AnsibleCommand createCommand() {
+        return Command.AnsibleCommand.newBuilder()
                 .setCommand(getCommand())
                 .setNodes(getFormattedNodes())
                 .build();

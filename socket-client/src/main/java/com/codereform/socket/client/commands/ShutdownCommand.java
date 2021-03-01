@@ -1,6 +1,6 @@
 package com.codereform.socket.client.commands;
 
-import mymessages.Command;
+import ClusterProtos.Command;
 import java.util.List;
 
 public class ShutdownCommand extends BaseCommand {
@@ -13,8 +13,8 @@ public class ShutdownCommand extends BaseCommand {
     }
 
     @Override
-    public Command.ansibleCommand createCommand() {
-        return Command.ansibleCommand.newBuilder()
+    public Command.AnsibleCommand createCommand() {
+        return Command.AnsibleCommand.newBuilder()
                 .setCommand(getCommand())
                 .setNodes(getFormattedNodes())
                 .build();
