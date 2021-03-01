@@ -34,7 +34,7 @@ public class NodesListPanel extends UiComponent {
                         getSelectedValuesWithAsteriskExcluded(selectedValues): toStringList(selectedValues);
 
                 var notification = new NodesSelectedNotification();
-                var context = new Context(ListViewAction.nodesUpdate, String.join(",", values));
+                var context = new Context(String.join(",", values));
                 notifyColleagues(notification, context);
             }
         });
@@ -75,10 +75,6 @@ public class NodesListPanel extends UiComponent {
 
     @Override
     public void receive(Context context) {
-        if(context.getAction() == ListViewAction.command) {
-            listView.setSelectedIndex(0);
-        } else {
-            JOptionPane.showMessageDialog(frame, String.format("Cannot handle '%s' action in %s.", context.getAction(), this.getClass().getName()));
-        }
+        listView.setSelectedIndex(0);
     }
 }

@@ -2,7 +2,6 @@ package com.codereform.gui.components.command.panels;
 
 import com.codereform.gui.components.UiComponent;
 import com.codereform.gui.components.communication.Context;
-import com.codereform.gui.components.communication.ListViewAction;
 import com.codereform.gui.components.communication.mediator.Mediator;
 import com.codereform.gui.components.communication.notifications.ResponseReceivedNotification;
 import com.codereform.socket.client.sender.CommandSender;
@@ -10,6 +9,7 @@ import com.codereform.socket.client.sender.CommandSender;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,22 +26,22 @@ public abstract class ActionableCommandPanel extends UiComponent {
 
     @Override
     public Component draw() {
-        var panel = new JPanel();
         var button = getButton();
         button.addActionListener(e -> {
             var handler = getSender();
             var response = handler.handle(nodes);
             var notification = new ResponseReceivedNotification();
-            var context = new Context(ListViewAction.response, response.getResponse());
+            var metadata = new HashMap<String, Object>();
+            metadata.put("notification", notification.getClass());
+            var context = new Context(response.getResponse(), metadata);
             mediator.send(notification, context);
         });
-        panel.add(button);
-        return panel;
+        return button;
     }
 
     @Override
     public void receive(Context context) {
-        if(context.getData() != null || !context.getData().isEmpty()) {
+        if(isContextDataNullOrEmpty(context)) {
             nodes = Arrays.stream(context.getData().split(",")).collect(Collectors.toList());
         } else {
             System.err.println(String.format("Nodes list should not be null or empty"));

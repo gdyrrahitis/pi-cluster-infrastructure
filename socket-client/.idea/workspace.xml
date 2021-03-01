@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="da832546-d953-4eda-a5c1-3db314a62f8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/RebootCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/RebootCommandPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ShutdownCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ShutdownCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelRightPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelRightPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/UiComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/UiComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ActionableCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ActionableCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/communication/ListViewAction.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
