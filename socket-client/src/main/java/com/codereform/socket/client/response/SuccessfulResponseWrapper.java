@@ -6,4 +6,9 @@ public class SuccessfulResponseWrapper extends ResponseWrapper {
     public SuccessfulResponseWrapper(Response.ServerResponse response) {
         super(response);
     }
+
+    @Override
+    public ResponseType getType() {
+        return ResponseType.success;
+    }
 }

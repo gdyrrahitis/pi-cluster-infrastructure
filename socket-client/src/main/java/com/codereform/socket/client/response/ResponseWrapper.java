@@ -15,4 +15,5 @@ public abstract class ResponseWrapper {
     public String getResponse() {
         return rawResponse;
     }
+    public abstract ResponseType getType();
 }

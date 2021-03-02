@@ -33,6 +33,7 @@ public abstract class ActionableCommandPanel extends UiComponent {
             var notification = new ResponseReceivedNotification();
             var metadata = new HashMap<String, Object>();
             metadata.put("notification", notification.getClass());
+            metadata.put("responseType", response.getType());
             var context = new Context(response.getResponse(), metadata);
             mediator.send(notification, context);
         });

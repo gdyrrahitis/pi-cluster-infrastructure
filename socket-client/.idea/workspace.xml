@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da832546-d953-4eda-a5c1-3db314a62f8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/factory/AbstractFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/factory/ComponentFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codereform/modules/GuiModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/ClientFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/CommandListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/Container.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/FooterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/FooterPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelLeftPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelLeftPart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelRightPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/MainPanelRightPart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/NodesListPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/TextAreaView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/WindowPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/DefaultCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/DefaultCommandPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ActionableCommandPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/gui/components/command/panels/ActionableCommandPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ErrorResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ErrorResponseWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ExceptionResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ExceptionResponseWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/ResponseWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/SuccessfulResponseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codereform/socket/client/response/SuccessfulResponseWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
