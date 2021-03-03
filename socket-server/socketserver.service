@@ -1,0 +1,9 @@
+[Unit]
+Description=Socket_Server
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/server
+
+[Install]
+WantedBy=multi-user.target
