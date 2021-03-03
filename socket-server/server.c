@@ -23,9 +23,9 @@ char * GetCommand(AnsibleCommand *msg);
 
 /*
 TODO:
-1) Timeout
-3) recv buffer -- check if bytes are enough
-4) Add more properties in command.proto
+* Timeout
+* recv buffer -- check if bytes are enough
+* Add more properties in command.proto
 */
 int main (int argc, char *argv[]) {
     int server_socket, client_socket, on=1;
@@ -103,38 +103,63 @@ void HandleTcpClient(int clientSocket, char *addr) {
         TerminateWithError("recv() failed");
     }
 
-    // TODO: Handle when receives 0 size (empty request)
-
-    printf("Receiving request from client %s -- with bytes: %d\n", addr, recvMessageSize);
-    // Read & deserialize proto message
-    msg = ansible_command__unpack(NULL, recvMessageSize, buffer);
-    if (msg == NULL) {
-        char *errResponse = "ERR: Error in unpacking incoming message";
-        SetErrorResponse(&resp, errResponse);
-    } else {
-        puts("Received incoming message successfully");
-        printf("Command: %s. Nodes: %s\n", msg->command, msg->nodes);
-        // execute ansible playbook here
-        // TODO: Determine which nodes to execute against
-        cmd = GetCommand(msg);
-        fp = popen(cmd, "r");
-
-        // Ansible response here
-        if(fp == NULL) {
-            char *errResponse = "ERR: Error in executing command";
+    if(recvMessageSize > 0) {
+        printf("Receiving request from client %s -- with bytes: %d\n", addr, recvMessageSize);
+        // Read & deserialize proto message
+        msg = ansible_command__unpack(NULL, recvMessageSize, buffer);
+        if (msg == NULL) {
+            char *errResponse = "ERR: Error in unpacking incoming message";
             SetErrorResponse(&resp, errResponse);
         } else {
-            // TODO: THIS MUST BE FIXED
-            char resultBuffer[255];
-            while (fgets(resultBuffer, sizeof(resultBuffer), fp) != NULL) {
-                printf("%s\n", resultBuffer);
-            }
-            resp.msg = "Success";
-        }
+            puts("Received incoming message successfully");
+            printf("Command: %s. Nodes: %s\n", msg->command, msg->nodes);
+            // execute ansible playbook here
+            // TODO: Determine which nodes to execute against
+            cmd = GetCommand(msg);
+            fp = popen(cmd, "r");
 
-        pclose(fp);
+            // Ansible response here
+            if(fp == NULL) {
+                char *errResponse = "ERR: Error in executing command";
+                SetErrorResponse(&resp, errResponse);
+            } else {
+                unsigned int maxlen = 128, s = 128;
+                char* bf = (char*)malloc(maxlen);
+
+                if(bf != NULL) /* NULL if malloc() fails */
+                {
+                    int ch = EOF;
+                    int pos = 0;
+
+                    /* Read input one character at a time, resizing the bf as necessary */
+                    while((ch = fgetc(fp)) != EOF && !feof(fp))
+                    {
+                        bf[pos++] = ch;
+                        if(pos == s) /* Next character to be inserted needs more memory */
+                        {
+                            s = pos + maxlen;
+                            bf = (char*)realloc(bf, s);
+                        }
+                    }
+                    bf[pos] = '\0'; /* Null-terminate the completed string */
+                    resp.msg = bf;
+                    free(bf);
+                } else {
+                    resp.msg = "Cannot allocate buffer for response";
+                    resp.has_iserror = 1;
+                    resp.iserror = 1;
+                }
+            }
+
+            pclose(fp);
+            free(cmd);
+        }
+        ansible_command__free_unpacked(msg, NULL);
+    } else {
+        resp.msg = "Empty request";
+        resp.has_iserror = 1;
+        resp.iserror = 1;
     }
-    ansible_command__free_unpacked(msg, NULL);
 
     // Send back response - serialize response message
     puts("Sending response back to the client");
@@ -194,8 +219,11 @@ char * GetPlaybook(AnsibleCommand *msg) {
 
 char * GetCommand(AnsibleCommand *msg) {
     char *ansiblePlaybookCmd = "ansible-playbook -b ";
-    char *playbook = GetPlaybook(msg);
-    char *cmd = (char *)malloc(strlen(ansiblePlaybookCmd) + strlen(playbook));
+    char *playbookref = GetPlaybook(msg);
+    size_t len = strlen(playbookref) + 1;
+    char playbook[len];
+    strcpy(playbook, playbookref);
+    char *cmd = (char *)malloc(1 + strlen(ansiblePlaybookCmd) + strlen(playbook));
     strcpy(cmd, ansiblePlaybookCmd);
     strcat(cmd, playbook);
     return cmd;
