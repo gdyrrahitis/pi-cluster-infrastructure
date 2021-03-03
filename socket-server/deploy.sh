@@ -2,10 +2,16 @@
 
 chmod 777 build.sh
 
+# stop service before deployment
+echo "Stopping service..."
+sudo systemctl stop socketserver.service
+
 # building server
+echo "Building server..."
 sh ./build.sh
 
 # copying server to another location
+echo "Copying server to /usr/local/bin..."
 cp ./server /usr/local/bin
 chmod 755 /usr/local/bin/server
 
